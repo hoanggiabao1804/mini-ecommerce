@@ -1,0 +1,38 @@
+[
+  {
+    "name": "iphone",
+    "source": "https://cellphones.com.vn/iphone-16.html",
+    "image": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/iphone-16-1.png",
+    "bytes": 346267
+  },
+  {
+    "name": "samsung",
+    "source": "https://cellphones.com.vn/samsung-galaxy-s24-ultra.html",
+    "image": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/s/s/ss-s24-ultra-xam-222.png",
+    "bytes": 244660
+  },
+  {
+    "name": "macbook",
+    "source": "https://cellphones.com.vn/macbook-air-m3-13-inch-2024.html",
+    "image": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/m/b/mba13-m3-midnight-gallery1-202402.jpg",
+    "bytes": 35943
+  },
+  {
+    "name": "airpods",
+    "source": "https://cellphones.com.vn/apple-airpods-pro-2-usb-c.html",
+    "image": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/a/p/apple-airpods-pro-2-usb-c_8__1.png",
+    "bytes": 99271
+  },
+  {
+    "name": "ipad",
+    "source": "https://cellphones.com.vn/ipad-air-6-m2-11-inch.html",
+    "image": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/ipad-air-6-m2-11-inch_9_.jpg",
+    "bytes": 40729
+  },
+  {
+    "name": "watch",
+    "source": "https://cellphones.com.vn/apple-watch-series-9-41mm.html",
+    "image": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/v/n/vn_apple_watch_series_9_gps_41mm_midnight_aluminum_midnight_sport_band_pdp_image_position-1_2.jpg",
+    "bytes": 25879
+  }
+]

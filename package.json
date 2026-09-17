@@ -1,0 +1,26 @@
+{
+	"name": "mini-ecommerce",
+	"version": "0.1.0",
+	"private": true,
+	"engines": {
+		"node": ">=24"
+	},
+	"workspaces": [
+		"apps/*",
+		"services/*",
+		"packages/*"
+	],
+	"scripts": {
+		"dev": "concurrently --kill-others-on-fail \"npm:dev:web\" \"npm:dev:services\"",
+		"dev:web": "npm run dev -w apps/web",
+		"dev:services": "concurrently --kill-others-on-fail \"npm run dev -w services/api-gateway\" \"npm run dev -w services/auth-service\" \"npm run dev -w services/product-service\" \"npm run dev -w services/cart-service\" \"npm run dev -w services/order-service\" \"npm run dev -w services/inventory-service\" \"npm run dev -w services/payment-service\" \"npm run dev -w services/notification-service\"",
+		"build": "npm run build --workspaces --if-present",
+		"typecheck": "npm run typecheck --workspaces --if-present",
+		"infra:up": "docker compose up -d --wait",
+		"infra:down": "docker compose down",
+		"infra:logs": "docker compose logs -f"
+	},
+	"devDependencies": {
+		"concurrently": "^10.0.5"
+	}
+}

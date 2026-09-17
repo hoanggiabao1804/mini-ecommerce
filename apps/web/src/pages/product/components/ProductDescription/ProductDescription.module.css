@@ -1,0 +1,83 @@
+.section {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+  margin-top: 30px;
+  scroll-margin-top: 24px;
+}
+.description,
+.specifications {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 26px;
+  min-width: 0;
+}
+.section h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  margin: 0 0 24px;
+}
+.section h2 svg {
+  color: var(--purple);
+  flex-shrink: 0;
+}
+.description h3 {
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0 0 13px;
+}
+.description p {
+  white-space: pre-line;
+  font-size: 14px;
+  color: #6d6376;
+  line-height: 1.95;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.specifications dl {
+  margin: 0;
+  font-size: 12px;
+}
+.specifications dl > div {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.7;
+}
+.specifications dl > div:last-child {
+  border-bottom: 0;
+}
+.specifications dt {
+  color: var(--muted);
+}
+.specifications dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 800px) {
+  .section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .description,
+  .specifications {
+    padding: 22px;
+  }
+}
+@media (max-width: 400px) {
+  .section h2 {
+    font-size: 17px;
+  }
+  .specifications dl > div {
+    grid-template-columns: 85px minmax(0, 1fr);
+    gap: 10px;
+  }
+  .description p {
+    font-size: 13px;
+  }
+}

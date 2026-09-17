@@ -1,0 +1,107 @@
+.page {
+  max-width: 900px;
+  width: 100%;
+  margin: auto;
+  padding: 32px 24px 64px;
+}
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--purple);
+  font-size: 13px;
+}
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 28px 0;
+}
+.heading h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+.heading p {
+  margin: 0;
+  color: #756a80;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.icon {
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  border-radius: 16px;
+  background: #eee4fb;
+  color: var(--purple);
+}
+.card {
+  border: 1px solid #e9dff2;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 18px;
+  border-bottom: 1px solid #eee8f5;
+}
+.filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.filters button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: transparent;
+  color: #756a80;
+  cursor: pointer;
+  font-size: 13px;
+}
+.filters button[aria-pressed="true"] {
+  background: #eee4fb;
+  color: var(--purple);
+  font-weight: 600;
+}
+.mark {
+  border: 0;
+  background: transparent;
+  color: var(--purple);
+  font-size: 12px;
+  cursor: pointer;
+}
+.mark:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.demo {
+  font-size: 12px;
+  color: #756a80;
+  line-height: 1.7;
+  margin: 20px 0;
+}
+.empty {
+  padding: 36px 20px;
+  text-align: center;
+  color: #756a80;
+}
+@media (max-width: 580px) {
+  .page {
+    padding: 24px 16px 48px;
+  }
+  .heading h1 {
+    font-size: 23px;
+  }
+  .icon {
+    padding: 12px;
+  }
+  .heading {
+    gap: 12px;
+  }
+}

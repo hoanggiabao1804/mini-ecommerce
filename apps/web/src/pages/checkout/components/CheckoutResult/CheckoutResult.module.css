@@ -1,0 +1,156 @@
+.result {
+  max-width: 750px;
+  margin: 20px auto 0;
+  padding: 40px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  text-align: center;
+}
+.icon {
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  background: #eaf7f0;
+  color: #32815a;
+}
+.failure .icon {
+  background: #fff0f2;
+  color: #b44a62;
+}
+.eyebrow {
+  font-size: 9px;
+  letter-spacing: 1.7px;
+  color: var(--purple);
+  font-weight: 700;
+}
+.result h1 {
+  font-size: 28px;
+  letter-spacing: -0.7px;
+  line-height: 1.4;
+  margin: 14px 0;
+}
+.result h1:focus {
+  outline: none;
+}
+.description {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 550px;
+  margin: auto;
+}
+.receipt {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  background: #f9f5fd;
+  padding: 20px;
+  border-radius: 11px;
+  margin: 25px 0 20px;
+  text-align: left;
+}
+.receipt > div {
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+}
+.receipt span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.receipt strong {
+  font-size: 15px;
+  color: var(--purple);
+  overflow-wrap: anywhere;
+}
+.delivery {
+  display: flex;
+  gap: 10px;
+  text-align: left;
+  padding: 0 0 20px;
+  font-size: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.delivery > svg {
+  color: var(--purple);
+  flex-shrink: 0;
+}
+.delivery > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.delivery p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 6px 0 0;
+}
+.items > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 0;
+  text-align: left;
+  font-size: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.items small {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.items strong {
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--purple);
+}
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+.actions a,
+.actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--purple);
+  border-radius: 8px;
+  background: var(--purple);
+  color: white;
+  padding: 13px 18px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.actions .secondary {
+  background: white;
+  color: var(--purple);
+  border-color: #ddcbea;
+}
+@media (max-width: 550px) {
+  .result {
+    padding: 28px 20px;
+  }
+  .result h1 {
+    font-size: 23px;
+  }
+  .receipt {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .items > div {
+    flex-direction: column;
+    gap: 7px;
+  }
+}

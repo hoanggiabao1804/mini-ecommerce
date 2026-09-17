@@ -1,0 +1,87 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.item {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+  border-bottom: 1px solid #eee8f5;
+}
+.item:last-child {
+  border-bottom: 0;
+}
+.unread {
+  background: #faf6ff;
+}
+.content {
+  min-width: 0;
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+.content h3 {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 6px;
+  color: var(--ink);
+}
+.content p {
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0 0 10px;
+  color: #696174;
+}
+.content time {
+  display: block;
+  font-size: 11px;
+  color: #756a80;
+}
+.content button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  border: 0;
+  background: transparent;
+  padding: 4px 0;
+  color: var(--purple);
+  font-size: 12px;
+  cursor: pointer;
+}
+.read {
+  display: block;
+  font-size: 11px;
+  color: #756a80;
+  margin-top: 14px;
+}
+.dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--purple);
+  margin-left: 8px;
+}
+.success {
+  color: #258154;
+}
+.failure {
+  color: #b74747;
+}
+.empty {
+  text-align: center;
+  color: #756a80;
+  padding: 38px 20px;
+}
+.empty svg {
+  color: var(--purple);
+}
+.empty h3 {
+  font-size: 16px;
+  color: var(--ink);
+}
+.empty p {
+  font-size: 13px;
+  line-height: 1.6;
+}

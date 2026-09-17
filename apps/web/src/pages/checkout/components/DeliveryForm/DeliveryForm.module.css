@@ -1,0 +1,134 @@
+.section {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 27px;
+}
+.heading {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.heading > span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: var(--purple);
+  background: #f1e7fb;
+  border-radius: 11px;
+  flex-shrink: 0;
+}
+.heading h2 {
+  font-size: 18px;
+  margin: 0 0 5px;
+}
+.heading p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 19px 16px;
+}
+.saved {
+  padding: 0;
+  margin: 0 0 24px;
+  border: 0;
+  min-width: 0;
+  display: grid;
+  gap: 10px;
+}
+.saved legend {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.saved label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.saved .selected {
+  background: #fcf9ff;
+  border-color: #b997d9;
+}
+.saved input {
+  accent-color: var(--purple);
+  margin-top: 3px;
+}
+.saved label > span {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.saved strong {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.saved small {
+  color: var(--purple);
+  background: #eee2f9;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 9px;
+}
+.saved span > span {
+  color: var(--muted);
+  line-height: 1.5;
+}
+.note {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 23px 0 9px;
+}
+.note span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+}
+.section textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid #ddd6e7;
+  border-radius: 8px;
+  padding: 12px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  min-height: 80px;
+}
+.help {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 0;
+}
+.help a {
+  color: var(--purple);
+  text-decoration: underline;
+}
+@media (max-width: 500px) {
+  .section {
+    padding: 20px 16px;
+  }
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .heading h2 {
+    font-size: 17px;
+  }
+}

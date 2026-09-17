@@ -1,0 +1,76 @@
+.heading > span {
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  color: var(--purple);
+  font-weight: 700;
+}
+.heading h2 {
+  font-size: 29px;
+  letter-spacing: -0.8px;
+  margin: 12px 0;
+}
+.heading p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+.form {
+  display: grid;
+  gap: 22px;
+  margin-top: 30px;
+}
+.submit {
+  width: 100%;
+  border: 0;
+  border-radius: 9px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--purple);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+.submit:hover {
+  background: #5e2a9e;
+}
+.submit:disabled {
+  opacity: 0.6;
+}
+.switch {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 25px;
+}
+.switch a {
+  color: var(--purple);
+  font-weight: 700;
+}
+.error {
+  color: #a72d46;
+  background: #fff2f4;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+}
+.error svg {
+  flex-shrink: 0;
+}
+.demo {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 30px;
+}

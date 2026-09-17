@@ -1,0 +1,158 @@
+name: mini-ecommerce
+
+services:
+    kafka:
+        image: confluentinc/cp-kafka:8.0.7
+        hostname: kafka
+        restart: unless-stopped
+
+        ports:
+            - "9092:9092"
+
+        environment:
+            # =========================
+            # KRaft configuration
+            # =========================
+            KAFKA_NODE_ID: 1
+            KAFKA_PROCESS_ROLES: broker,controller
+
+            KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:29093
+            KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+
+            # =========================
+            # Listener configuration
+            # =========================
+            KAFKA_LISTENERS: >-
+                INTERNAL://0.0.0.0:29092,
+                CONTROLLER://0.0.0.0:29093,
+                EXTERNAL://0.0.0.0:9092
+
+            KAFKA_ADVERTISED_LISTENERS: >-
+                INTERNAL://kafka:29092,
+                EXTERNAL://localhost:9092
+
+            KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: >-
+                INTERNAL:PLAINTEXT,
+                CONTROLLER:PLAINTEXT,
+                EXTERNAL:PLAINTEXT
+
+            KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+
+            # Single broker => replication factor must be 1
+            KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+            KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+            KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+
+            # Cluster ID for KRaft
+            CLUSTER_ID: ${KAFKA_CLUSTER_ID}
+
+        volumes:
+            - kafka_data:/var/lib/kafka/data
+
+        healthcheck:
+            test:
+                [
+                    "CMD-SHELL",
+                    "kafka-topics --bootstrap-server localhost:9092 --list > /dev/null 2>&1",
+                ]
+            interval: 10s
+            timeout: 5s
+            retries: 10
+            start_period: 20s
+
+        networks:
+            - mini_ecommerce_network
+
+    postgres:
+        image: postgres:16.15
+        restart: unless-stopped
+
+        ports:
+            - "5432:5432"
+
+        environment:
+            POSTGRES_DB: ${POSTGRES_DB}
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+            - ./infra/postgres/init:/docker-entrypoint-initdb.d:ro
+
+        healthcheck:
+            test:
+                [
+                    "CMD-SHELL",
+                    "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}",
+                ]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+            start_period: 10s
+
+        networks:
+            - mini_ecommerce_network
+    mongodb:
+        image: mongo:7.0.43
+        restart: unless-stopped
+
+        ports:
+            - "127.0.0.1:27017:27017"
+
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+            MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+            MONGO_INITDB_DATABASE: notification_db
+
+            MONGO_NOTIFICATION_USERNAME: ${MONGO_NOTIFICATION_USERNAME:?Required}
+            MONGO_NOTIFICATION_PASSWORD: ${MONGO_NOTIFICATION_PASSWORD:?Required}
+
+        volumes:
+            - mongodb_data:/data/db
+            - ./infra/mongodb/init:/docker-entrypoint-initdb.d:ro
+
+        healthcheck:
+            test:
+                [
+                    "CMD-SHELL",
+                    'mongosh --quiet --username "$${MONGO_INITDB_ROOT_USERNAME}" --password "$${MONGO_INITDB_ROOT_PASSWORD}" --authenticationDatabase admin --eval ''quit(db.adminCommand({ ping: 1 }).ok ? 0 : 1)''',
+                ]
+            interval: 10s
+            timeout: 5s
+            retries: 10
+            start_period: 20s
+
+        networks:
+            - mini_ecommerce_network
+    redis:
+        image: redis:7.4
+        restart: unless-stopped
+
+        command:
+            ["redis-server", "--appendonly", "yes", "--appendfsync", "everysec"]
+
+        ports:
+            - "127.0.0.1:6379:6379"
+
+        volumes:
+            - redis_data:/data
+
+        healthcheck:
+            test: ["CMD", "redis-cli", "ping"]
+            interval: 5s
+            timeout: 5s
+            retries: 20
+            start_period: 10s
+
+        networks:
+            - mini_ecommerce_network
+
+volumes:
+    kafka_data:
+    postgres_data:
+    mongodb_data:
+    redis_data:
+
+networks:
+    mini_ecommerce_network:
+        driver: bridge
