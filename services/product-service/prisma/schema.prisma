@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Product {
+  id           Int              @id @default(autoincrement())
+  slug         String           @unique
+  name         String
+  brand        String
+  category     String
+  specs        String[]
+  badge        String?
+  description  String
+  displayOrder Int              @default(0) @map("display_order")
+  createdAt    DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  variants     ProductVariant[]
+
+  @@map("products")
+}
+
+model ProductVariant {
+  id           Int      @id @default(autoincrement())
+  productId    Int      @map("product_id")
+
+  product      Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  sku          String   @unique
+  color        String
+  storage      String?
+  ram          String?
+
+  price        Decimal  @db.Decimal(15, 0)
+
+  image        String
+
+  isActive     Boolean  @default(true) @map("is_active")
+  displayOrder Int      @default(0) @map("display_order")
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([productId, displayOrder])
+  @@map("product_variants")
+}

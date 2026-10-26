@@ -1,31 +1,24 @@
-import 'dotenv/config';
-import express from 'express';
+import { env } from "./config/env.js";
+import { prisma } from "./libs/prisma.js";
+import { createApp } from "./app.js";
 
-const app = express();
-const port = Number(process.env.PORT ?? 3002);
-
-app.use(express.json());
-
-app.get('/health', (_request, response) => {
-  response.json({
-    service: 'product-service',
-    status: 'ok',
-    timestamp: new Date().toISOString(),
-  });
+const server = createApp(prisma).listen(env.port, () => {
+	console.log(`Product service listening on ${env.port}`);
 });
 
-app.use((_request, response) => {
-  response.status(404).json({ message: 'Resource not found' });
-});
+let closing = false;
 
-const server = app.listen(port, () => {
-  console.log('product-service listening on port ' + port);
-});
+async function shutdown() {
+	if (closing) return;
+	closing = true;
 
-function shutdown() {
-  server.close(() => process.exit(0));
-  setTimeout(() => process.exit(1), 10_000).unref();
+	server.close(async () => {
+		await prisma.$disconnect();
+		process.exit(0);
+	});
+
+	setTimeout(() => process.exit(1), 10_000).unref();
 }
 
-process.on('SIGTERM', shutdown);
-process.on('SIGINT', shutdown);
+process.on("SIGTERM", shutdown);
+process.on("SIGINT", shutdown);
