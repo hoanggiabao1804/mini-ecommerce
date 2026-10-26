@@ -1,7 +1,14 @@
 import { CorsOptions } from "cors";
 
+const origins = (
+	process.env.CLIENT_ORIGINS ?? "http://localhost:5173,http://localhost:5174"
+)
+	.split(",")
+	.map((origin) => origin.trim())
+	.filter(Boolean);
+
 const corsConfig: CorsOptions = {
-	origin: process.env.CLIENT_ORIGIN ?? "http://localhost:5173",
+	origin: origins,
 	optionsSuccessStatus: 200,
 };
 
