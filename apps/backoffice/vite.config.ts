@@ -3,7 +3,6 @@ import { defineConfig, loadEnv } from "vite";
 
 export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd(), "");
-
 	return {
 		plugins: [react()],
 		server: {
@@ -11,6 +10,7 @@ export default defineConfig(({ mode }) => {
 			strictPort: true,
 			proxy: {
 				"/api": env.API_GATEWAY_URL || "http://localhost:3000",
+				"/images": env.STOREFRONT_URL || "http://localhost:5173",
 			},
 		},
 	};
