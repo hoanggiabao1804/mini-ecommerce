@@ -1,0 +1,74 @@
+.page {
+	padding-top: 6px;
+}
+
+.eyebrow {
+	color: var(--purple);
+	font-size: 10px;
+	font-weight: 850;
+	letter-spacing: 2px;
+}
+
+.card {
+	min-height: 455px;
+	margin-top: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	padding: 35px;
+	border: 1px solid var(--line);
+	border-radius: 18px;
+	background: var(--surface);
+	box-shadow: var(--card-shadow);
+}
+
+.icon {
+	display: grid;
+	place-items: center;
+	width: 66px;
+	height: 66px;
+	border-radius: 18px;
+	background: var(--purple-tint);
+	color: var(--purple);
+}
+
+.tag {
+	margin-top: 22px;
+	color: var(--purple);
+	font-size: 10px;
+	font-weight: 850;
+	letter-spacing: 1.6px;
+}
+
+.card h1 {
+	margin: 10px 0 8px;
+	font-size: 29px;
+	letter-spacing: -1px;
+}
+
+.card p {
+	max-width: 420px;
+	margin: 0;
+	color: var(--muted);
+	font-size: 13px;
+	line-height: 1.7;
+}
+
+.card a {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 23px;
+	padding: 11px 15px;
+	border-radius: 9px;
+	color: white;
+	background: var(--purple);
+	font-size: 12px;
+	font-weight: 750;
+}
+
+.card a:hover {
+	background: var(--purple-dark);
+}
