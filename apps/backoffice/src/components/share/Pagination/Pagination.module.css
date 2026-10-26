@@ -1,0 +1,131 @@
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 14px 22px;
+	padding: 16px 20px;
+	border: 1px solid var(--line);
+	border-radius: 13px;
+	background: var(--surface);
+	box-shadow: var(--card-shadow);
+	color: var(--muted);
+	font-size: 11px;
+}
+
+.sizeControl,
+.controls,
+.pageForm {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+}
+
+.sizeControl label,
+.pageForm label {
+	white-space: nowrap;
+	font-weight: 650;
+}
+
+.sizeControl select,
+.pageForm input {
+	height: 34px;
+	border: 1px solid var(--line-strong);
+	border-radius: 7px;
+	background: var(--surface);
+	color: var(--ink);
+	text-align: center;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.sizeControl select {
+	min-width: 58px;
+	padding: 0 7px;
+	cursor: pointer;
+}
+
+.pageForm input {
+	width: 52px;
+	padding: 0 4px;
+}
+
+.pageForm input::-webkit-inner-spin-button,
+.pageForm input::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.pageForm input {
+	appearance: textfield;
+}
+
+.range {
+	margin: 0;
+	white-space: nowrap;
+}
+
+.range strong {
+	color: var(--ink);
+}
+
+.controls {
+	margin-left: auto;
+	gap: 9px;
+}
+
+.controls > button {
+	height: 34px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	padding: 0 11px;
+	border: 1px solid var(--line-strong);
+	border-radius: 7px;
+	background: var(--surface);
+	color: var(--ink);
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: 650;
+}
+
+.controls > button:hover:not(:disabled) {
+	border-color: var(--purple-soft);
+	color: var(--purple);
+	background: var(--purple-tint);
+}
+
+.controls > button:disabled {
+	opacity: 0.42;
+	cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+	.range {
+		order: 3;
+		width: 100%;
+	}
+}
+
+@media (max-width: 550px) {
+	.pagination {
+		padding: 14px;
+	}
+
+	.controls {
+		margin-left: 0;
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	.range {
+		order: 0;
+		width: auto;
+	}
+
+	.sizeControl {
+		width: 100%;
+		justify-content: space-between;
+	}
+}

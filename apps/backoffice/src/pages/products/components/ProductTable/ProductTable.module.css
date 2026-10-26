@@ -1,0 +1,142 @@
+.scroll {
+	overflow-x: auto;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: left;
+}
+
+.table th {
+	padding: 15px 19px;
+	background: var(--table-head);
+	color: var(--muted);
+	font-size: 10px;
+	font-weight: 800;
+	letter-spacing: 1.15px;
+	white-space: nowrap;
+}
+
+.table td {
+	padding: 13px 19px;
+	border-top: 1px solid var(--line);
+	font-size: 12px;
+}
+
+.table tbody tr {
+	transition: background 0.15s;
+}
+
+.table tbody tr:hover,
+.selected {
+	background: var(--row-hover);
+}
+
+.table th:last-child,
+.table td:last-child {
+	width: 50px;
+	text-align: right;
+}
+
+.productCell {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-width: 260px;
+}
+
+.thumb {
+	display: grid;
+	place-items: center;
+	position: relative;
+	width: 48px;
+	height: 48px;
+	flex: none;
+	overflow: hidden;
+	border: 1px solid var(--line);
+	border-radius: 9px;
+	color: var(--muted);
+	background: white;
+}
+
+.thumb img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	padding: 4px;
+	background: white;
+}
+
+.productText {
+	display: block;
+	min-width: 0;
+}
+
+.productText strong {
+	display: block;
+	max-width: 310px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: var(--ink);
+	font-weight: 740;
+	font-size: 12px;
+}
+
+.productText small {
+	display: block;
+	margin-top: 5px;
+	color: var(--muted);
+	font-size: 11px;
+}
+
+.category {
+	display: inline-block;
+	padding: 7px 10px;
+	border-radius: 7px;
+	background: var(--purple-tint);
+	color: var(--purple);
+	white-space: nowrap;
+	font-size: 11px;
+	font-weight: 700;
+}
+
+.variantCount {
+	color: var(--muted);
+	white-space: nowrap;
+}
+
+.price {
+	color: var(--ink);
+	white-space: nowrap;
+	font-size: 12px;
+}
+
+.view {
+	display: inline-grid;
+	place-items: center;
+	width: 30px;
+	height: 30px;
+	border: 1px solid var(--line);
+	border-radius: 7px;
+	color: var(--muted);
+	background: var(--surface);
+	cursor: pointer;
+}
+
+.view:hover {
+	color: var(--purple);
+	border-color: var(--purple-soft);
+}
+
+.srOnly {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}

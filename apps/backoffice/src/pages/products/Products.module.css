@@ -1,0 +1,280 @@
+.page {
+	color: var(--ink);
+}
+
+.heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 18px;
+	margin-bottom: 22px;
+}
+
+.eyebrow {
+	color: var(--purple);
+	font-size: 10px;
+	font-weight: 850;
+	letter-spacing: 2px;
+}
+
+.heading h1 {
+	margin: 7px 0 8px;
+	font-size: clamp(27px, 3vw, 34px);
+	letter-spacing: -1.5px;
+	line-height: 1.2;
+}
+
+.heading h1 span {
+	color: var(--purple);
+}
+
+.heading p {
+	margin: 0;
+	color: var(--muted);
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+.headingIcon {
+	display: grid;
+	place-items: center;
+	width: 48px;
+	height: 48px;
+	flex: none;
+	border: 1px solid var(--purple-soft);
+	border-radius: 13px;
+	background: var(--purple-tint);
+	color: var(--purple);
+}
+
+.infoBar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 7px;
+	margin-bottom: 20px;
+	padding: 12px 15px;
+	border: 1px solid var(--purple-soft);
+	border-radius: 10px;
+	background: var(--purple-tint);
+	color: var(--muted);
+	font-size: 11px;
+}
+
+.infoBar span:nth-child(2) {
+	color: var(--purple);
+	font-weight: 750;
+}
+
+.infoDot {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--purple);
+}
+
+.infoSeparator {
+	color: var(--purple);
+}
+
+.card {
+	border: 1px solid var(--line);
+	border-radius: 16px;
+	overflow: hidden;
+	background: var(--surface);
+	box-shadow: var(--card-shadow);
+}
+
+.cardHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 21px 23px 18px;
+}
+
+.cardHeader h2 {
+	margin: 0;
+	font-size: 17px;
+	letter-spacing: -0.4px;
+}
+
+.cardHeader p {
+	margin: 5px 0 0;
+	color: var(--muted);
+	font-size: 11px;
+}
+
+.refresh {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	padding: 9px 11px;
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	background: var(--surface);
+	color: var(--muted);
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: 700;
+}
+
+.refresh:hover {
+	color: var(--purple);
+	border-color: var(--purple-soft);
+}
+
+.filters {
+	display: flex;
+	gap: 11px;
+	padding: 0 23px 18px;
+}
+
+.search {
+	display: flex;
+	align-items: center;
+	flex: 1;
+	min-width: 0;
+	height: 39px;
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	color: var(--muted);
+	background: var(--surface);
+}
+
+.search > svg {
+	margin-left: 12px;
+	flex: none;
+}
+
+.search input {
+	flex: 1;
+	min-width: 0;
+	height: 100%;
+	border: 0;
+	outline: none;
+	padding: 0 10px;
+	color: var(--ink);
+	background: transparent;
+	font-size: 11px;
+}
+
+.search input::placeholder {
+	color: var(--muted);
+}
+
+.search button {
+	align-self: stretch;
+	margin: 3px;
+	padding: 0 14px;
+	border: 0;
+	border-radius: 6px;
+	background: var(--purple);
+	color: white;
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: 750;
+}
+
+.search button:hover {
+	background: var(--purple-dark);
+}
+
+.selectWrap {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	min-width: 173px;
+	height: 39px;
+	padding: 0 10px;
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	color: var(--muted);
+	background: var(--surface);
+}
+
+.selectWrap svg {
+	flex: none;
+}
+
+.selectWrap select {
+	width: 100%;
+	border: 0;
+	outline: 0;
+	color: var(--ink);
+	background: transparent;
+	font-size: 11px;
+	cursor: pointer;
+}
+
+.state {
+	min-height: 240px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 9px;
+	padding: 30px;
+	border-top: 1px solid var(--line);
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.state > svg {
+	color: var(--purple);
+}
+
+.state strong {
+	color: var(--ink);
+	font-size: 14px;
+}
+
+.state p {
+	margin: 0;
+}
+
+.state button {
+	border: 1px solid var(--purple-soft);
+	border-radius: 7px;
+	padding: 9px 13px;
+	background: var(--purple-tint);
+	color: var(--purple);
+	cursor: pointer;
+	font-weight: 700;
+}
+
+.spinner {
+	width: 23px;
+	height: 23px;
+	border: 3px solid var(--purple-soft);
+	border-top-color: var(--purple);
+	border-radius: 50%;
+	animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.paginationFooter {
+	margin-top: 18px;
+}
+
+.card {
+	scroll-margin-top: 24px;
+}
+
+@media (max-width: 650px) {
+	.filters {
+		flex-direction: column;
+	}
+	.selectWrap {
+		width: 100%;
+	}
+	.headingIcon {
+		display: none;
+	}
+}
