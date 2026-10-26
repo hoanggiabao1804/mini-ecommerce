@@ -1,7 +1,9 @@
 -- Local development only
 CREATE ROLE auth_user LOGIN PASSWORD 'auth_local';
 CREATE DATABASE auth_db OWNER auth_user;
+CREATE DATABASE user_db OWNER auth_user;
 REVOKE CONNECT ON DATABASE auth_db FROM PUBLIC;
+REVOKE CONNECT ON DATABASE user_db FROM PUBLIC;
 
 CREATE ROLE product_user LOGIN PASSWORD 'product_local';
 CREATE DATABASE product_db OWNER product_user;
