@@ -1,16 +1,23 @@
-# React + Vite
+# Mini Ecommerce Backoffice
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite admin UI. Dashboard and Products are implemented; other sidebar entries are placeholders for later services.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+From the repository root:
 
-## React Compiler
+```bash
+npm install
+npm run dev -w apps/backoffice
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Copy `.env.example` to `.env` to customize the local setup. Backoffice defaults to `http://localhost:5174`, proxies `/api` to API Gateway (`http://localhost:3000`), and proxies `/images` to the storefront (`http://localhost:5173`). Run Gateway and Product Service to load the product list. Run storefront too if you want product images to appear; the UI shows an image placeholder otherwise.
 
-## Expanding the ESLint configuration
+```bash
+npm run lint -w apps/backoffice
+npm run build -w apps/backoffice
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The dashboard currently gets only the visible-product count from Product Service. Order, revenue, user, notification, and other admin data are waiting for their backend APIs. Products is read-only and uses the public product-list response, which includes active variants only. Admin write actions need authentication and authorization before they are exposed in this UI.
+
+For production, route both `/api` to API Gateway and `/images` to the storefront asset host (or a shared image host). Vite's `server.proxy` only applies during development.
